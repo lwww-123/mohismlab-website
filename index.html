@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Open Graph meta tags -->
+    <meta property="og:title" content="MohismLab - 澳门大学墨子实验室">
+    <meta property="og:description" content="专注于机器学习、手术机器人、多机器人系统与医疗人工智能的前沿研究">
+    <meta property="og:image" content="assets/Moh-800.webp">
+    <meta property="og:type" content="website">
+    
+    <title>MohismLab - 澳门大学墨子实验室</title>
+    <meta name="author" content="MohismLab" />
+    <meta name="description" content="澳门大学墨子实验室官方网站" />
+    <meta name="keywords" content="机器人, 人工智能, 医疗机器人, 多机器人系统, 澳门大学" />
+
+    <!-- Bootstrap & MDB -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-DF7Zhf293AJxJNTmh5zhoYYIMs2oXitRfBjY+9L//AY=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous" />
+
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css" integrity="sha256-i1+4qU2G2860dGGIOJscdC30s9beBXjFfzjWLjBRsBg=" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons">
+
+    <!-- Code Syntax Highlighting -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jwarby/jekyll-pygments-themes@master/github.css" media="none" id="highlight_theme_light" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jwarby/jekyll-pygments-themes@master/native.css" media="none" id="highlight_theme_dark" />
+
+    <style>
+        body {
+            font-family: 'Roboto', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Light mode (default) */
+        body:not(.dark-mode) {
+            background-color: #fff;
+            color: #333;
+        }
+
+        /* Dark mode */
+        body.dark-mode {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+        }
+
+        /* Header styles from sample.html */
+        .navbar {
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,.1);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        body.dark-mode .navbar {
+            background: #2d2d2d;
+            box-shadow: 0 2px 4px rgba(255,255,255,.1);
+        }
+
+        .navbar-brand {
+            font-weight: 500;
+            color: #333 !important;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        body.dark-mode .navbar-brand {
+            color: #e0e0e0 !important;
+        }
+
+        .nav-link {
+            color: #333 !important;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #007bff !important;
+        }
+
+        body.dark-mode .nav-link {
+            color: #e0e0e0 !important;
+        }
+
+        body.dark-mode .nav-link:hover {
+            color: #667eea !important;
+        }
+
+        /* Dark mode toggle */
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            margin-left: 15px;
+        }
+
+        #light-toggle {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            padding: 5px;
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+
+        #light-toggle:hover {
+            background-color: rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode #light-toggle:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        #light-toggle .fa-moon {
+            display: none;
+            color: #333;
+        }
+
+        #light-toggle .fa-sun {
+            display: block;
+            color: #333;
+        }
+
+        body.dark-mode #light-toggle .fa-moon {
+            display: block;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode #light-toggle .fa-sun {
+            display: none;
+        }
+
+        /* Header banner style */
+        .headerr {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            margin-top: 76px; /* Account for fixed navbar */
+        }
+
+        .headerr h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .headerr p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Team container styles from sample.html */
+        .team-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .team-member {
+            text-align: center;
+            background-color: #fff;
+            padding: 30px 20px;
+            border-radius: 10px;
+            box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+        }
+
+        body.dark-mode .team-member {
+            background-color: #2d2d2d;
+            box-shadow: 0px 3px 15px rgba(255, 255, 255, 0.1);
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        body.dark-mode .team-member:hover {
+            box-shadow: 0px 8px 25px rgba(255, 255, 255, 0.15);
+        }
+
+        .team-member img {
+            object-fit: cover;
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+            margin-bottom: 20px;
+            border: 3px solid #667eea;
+        }
+
+        .team-member h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        body.dark-mode .team-member h3 {
+            color: #e0e0e0;
+        }
+
+        .team-member p {
+            color: #666;
+            margin-bottom: 15px;
+            transition: color 0.3s;
+        }
+
+        body.dark-mode .team-member p {
+            color: #ccc;
+        }
+
+        /* Section styles */
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+            font-weight: 300;
+            transition: color 0.3s;
+        }
+
+        body.dark-mode .section-title {
+            color: #e0e0e0;
+        }
+
+        /* Lab info cards */
+        .info-card {
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+        }
+
+        body.dark-mode .info-card {
+            background: #2d2d2d;
+            box-shadow: 0px 3px 15px rgba(255, 255, 255, 0.1);
+        }
+
+        .info-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        body.dark-mode .info-card:hover {
+            box-shadow: 0px 8px 25px rgba(255, 255, 255, 0.15);
+        }
+
+        .info-card h3 {
+            color: #667eea;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .info-card p {
+            transition: color 0.3s;
+        }
+
+        body.dark-mode .info-card p {
+            color: #ccc;
+        }
+
+        /* Director section */
+        .director-section {
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+            margin: 40px 0;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        body.dark-mode .director-section {
+            background: #2d2d2d;
+            box-shadow: 0px 3px 15px rgba(255, 255, 255, 0.1);
+        }
+
+        .director-content {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .director-photo img {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #667eea;
+        }
+
+        .director-info h3 {
+            color: #667eea;
+            font-size: 2rem;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+
+        .director-info .position {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 20px;
+            font-style: italic;
+            transition: color 0.3s;
+        }
+
+        body.dark-mode .director-info .position {
+            color: #ccc;
+        }
+
+        .achievements h4 {
+            color: #333;
+            margin: 20px 0 10px 0;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        body.dark-mode .achievements h4 {
+            color: #e0e0e0;
+        }
+
+        .achievements ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .achievements li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+            color: #555;
+            transition: color 0.3s;
+        }
+
+        body.dark-mode .achievements li {
+            color: #ccc;
+        }
+
+        .achievements li::before {
+            content: '•';
+            color: #667eea;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .achievements p {
+            transition: color 0.3s;
+        }
+
+        body.dark-mode .achievements p {
+            color: #ccc;
+        }
+
+        /* Research cards */
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .research-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+        }
+
+        body.dark-mode .research-card {
+            background: #2d2d2d;
+            box-shadow: 0px 3px 15px rgba(255, 255, 255, 0.1);
+        }
+
+        .research-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        body.dark-mode .research-card:hover {
+            box-shadow: 0px 8px 25px rgba(255, 255, 255, 0.15);
+        }
+
+        .research-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            font-weight: 500;
+        }
+
+        .research-card p {
+            color: #555;
+            line-height: 1.6;
+            transition: color 0.3s;
+        }
+
+        body.dark-mode .research-card p {
+            color: #ccc;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+
+        .cta-button:hover {
+            background: #5a6fd8;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            text-decoration: none;
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 15px;
+            color: #667eea;
+            font-weight: 500;
+        }
+
+        /* Background sections */
+        .bg-light {
+            background-color: #f8f9fa !important;
+            transition: background-color 0.3s;
+        }
+
+        body.dark-mode .bg-light {
+            background-color: #2a2a2a !important;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .headerr h2 {
+                font-size: 2rem;
+            }
+
+            .director-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .team-container {
+                grid-template-columns: 1fr;
+            }
+
+            .toggle-container {
+                margin-left: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body class="fixed-top-nav">
+    <!-- Header -->
+    <header>
+        <!-- Nav Bar -->
+        <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top">
+            <div class="container">
+                <a class="navbar-brand title font-weight-lighter" href="/">
+                    <img src="assets/Moh-800.webp" alt="MohismLab Logo" style="height: 40px; margin-right: 10px;">
+                    MohismLab
+                </a>
+                
+                <!-- Navbar Toggle -->
+                <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar top-bar"></span>
+                    <span class="icon-bar middle-bar"></span>
+                    <span class="icon-bar bottom-bar"></span>
+                </button>
+
+                <div class="collapse navbar-collapse text-right" id="navbarNav">
+                    <ul class="navbar-nav ml-auto flex-nowrap">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#home">首页</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#research">科研</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#publications">出版</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#team">团队</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#teaching">教学</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#join">加入</a>
+                        </li>
+                    </ul>
+                    
+                    <!-- Dark mode toggle -->
+                    <div class="toggle-container">
+                        <a id="light-toggle">
+                            <i class="fas fa-moon"></i>
+                            <i class="fas fa-sun"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="headerr" id="home">
+        <div class="container">
+            <h2>MohismLab</h2>
+            <p>澳门大学墨子实验室<br>
+            专注于机器学习、手术机器人、多机器人系统与医疗人工智能的前沿研究<br><br>
+            地址：E11 - 4065 Faculty of Science and Technology, University of Macau<br>
+            联系邮箱: <a href="mailto:qingbiaoli@um.edu.mo" style="color: white;"><i class="fas fa-envelope"></i> qingbiaoli@um.edu.mo</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="container mt-5">
+        <!-- Laboratory Overview -->
+        <section id="about" class="section">
+            <h3 class="section-title">实验室概况</h3>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="info-card">
+                        <h3><i class="fas fa-info-circle"></i> 实验室信息</h3>
+                        <p><strong>名称：</strong>MohismLab</p>
+                        <p><strong>地址：</strong>E11 - 4065 Faculty of Science and Technology<br>University of Macau</p>
+                        <p><strong>研究领域：</strong>机器学习运动控制、开源技术、医疗影像智能、手术机器人、医疗系统及多机器人系统</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="info-card">
+                        <h3><i class="fas fa-microscope"></i> 研究方向</h3>
+                        <p>• Machine Learning-based Motion Control</p>
+                        <p>• Healthcare Imaging/Intelligent Agent</p>
+                        <p>• Surgical Robotics and Medical Systems</p>
+                        <p>• Multi-Robot Systems</p>
+                        <p>• Open-source Technology</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Director Section -->
+            <div class="director-section">
+                <h3 style="text-align: center; margin-bottom: 40px; color: #667eea; font-weight: 400;">
+                    <i class="fas fa-user-tie"></i> 实验室负责人
+                </h3>
+                <div class="director-content">
+                    <div class="director-photo text-center">
+                        <img src="assets/qingbiaoli.png" alt="李庆标教授">
+                    </div>
+                    <div class="director-info">
+                        <h3>李庆标</h3>
+                        <p class="position">尚贤智启首席科学家，剑桥大学博士，澳门大学科技学院助理教授</p>
+                        
+                        <div class="achievements">
+                            <h4><i class="fas fa-briefcase"></i> 主要职责</h4>
+                            <p>主导AI教育底层技术架构设计，搭建国际学术合作网络，推动课程体系AI赋能，布局专利与顶级学术会议发声。</p>
+                            
+                            <h4><i class="fas fa-graduation-cap"></i> 教育背景与经历</h4>
+                            <ul>
+                                <li>剑桥大学博士，师从Amanda Prorok教授，研究多机器人系统的感知-通信-运动协同规划</li>
+                                <li>曾任牛津大学机器人研究所博士后研究员、帝国理工学院研究助理（医学机器人方向）</li>
+                                <li>硕士毕业于帝国理工学院（医学机器人），本科通过爱丁堡大学与华南理工大学"2+2"联合培养项目获机械工程学位</li>
+                            </ul>
+                            
+                            <h4><i class="fas fa-trophy"></i> 科研成果</h4>
+                            <ul>
+                                <li>论文发表于《Nature Machine Intelligence》、IEEE RA-L、IJCARS、ICRA、ICLR等顶级期刊会议</li>
+                                <li>获2020年剑桥大学计算机系Wiseman Prize、2023年国家优秀自费留学生奖学金</li>
+                                <li>谷歌学术引用超1000次</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Areas -->
+        <section id="research" class="section bg-light">
+            <div class="container">
+                <h3 class="section-title"><i class="fas fa-flask"></i> 研究方向</h3>
+                <div class="research-grid">
+                    <div class="research-card">
+                        <h3><i class="fas fa-robot"></i> 手术机器人</h3>
+                        <p>专注于手术机器人术中影像机器学习技术，开发智能化手术辅助系统，提高手术精度和安全性。</p>
+                    </div>
+                    <div class="research-card">
+                        <h3><i class="fas fa-network-wired"></i> 多机器人系统</h3>
+                        <p>研究多机器人系统的感知-通信-运动协同规划，实现机器人群体的智能协作。</p>
+                    </div>
+                    <div class="research-card">
+                        <h3><i class="fas fa-x-ray"></i> 医疗影像智能</h3>
+                        <p>利用机器学习技术进行医学诊断，开发血氧饱和度估计算法等医疗辅助诊断工具。</p>
+                    </div>
+                    <div class="research-card">
+                        <h3><i class="fas fa-cogs"></i> 机器学习运动控制</h3>
+                        <p>基于机器学习的运动控制算法研究，提升机器人系统的自主性和适应性。</p>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <a href="#publications" class="cta-button">
+                        <i class="fas fa-arrow-right"></i> 了解更多研究成果
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4><i class="fas fa-map-marker-alt"></i> 联系我们</h4>
+                    <p>地址：E11 - 4065 Faculty of Science and Technology<br>University of Macau</p>
+                    <p>邮箱：qingbiaoli@um.edu.mo</p>
+                </div>
+                <div class="footer-section">
+                    <h4><i class="fas fa-research"></i> 研究领域</h4>
+                    <p>手术机器人<br>多机器人系统<br>医疗人工智能<br>机器学习控制</p>
+                </div>
+                <div class="footer-section">
+                    <h4><i class="fas fa-info"></i> 关于我们</h4>
+                    <p>MohismLab致力于推动机器人技术与人工智能在医疗领域的创新应用</p>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #34495e; padding-top: 20px;">
+                <p>&copy; 2025 MohismLab. All rights reserved. Powered by <a href="https://github.com/" target="_blank" style="color: #667eea;">GitHub Pages</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScripts -->
+    <!-- jQuery -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap & MDB scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.2/dist/umd/popper.min.js" integrity="sha256-l/1pMF/+J4TThfgARS6KwWrk/egwuVvhRzfLAMQ6Ds4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha256-SyTu6CwrfOhaznYZPoolVw2rxoY7lKYKQvqbtqN93HI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script>
+
+    <!-- Dark Mode Script -->
+    <script>
+        // Dark mode functionality
+        function toggleDarkMode() {
+            const body = document.body;
+            const isDarkMode = body.classList.contains('dark-mode');
+            
+            if (isDarkMode) {
+                body.classList.remove('dark-mode');
+                localStorage.setItem('theme', 'light');
+                document.getElementById('highlight_theme_light').media = '';
+                document.getElementById('highlight_theme_dark').media = 'none';
+            } else {
+                body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark');
+                document.getElementById('highlight_theme_light').media = 'none';
+                document.getElementById('highlight_theme_dark').media = '';
+            }
+        }
+
+        // Initialize theme on page load
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                document.body.classList.add('dark-mode');
+                document.getElementById('highlight_theme_light').media = 'none';
+                document.getElementById('highlight_theme_dark').media = '';
+            } else {
+                document.getElementById('highlight_theme_light').media = '';
+                document.getElementById('highlight_theme_dark').media = 'none';
+            }
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            initTheme();
+            
+            const darkModeToggle = document.getElementById('light-toggle');
+            if (darkModeToggle) {
+                darkModeToggle.addEventListener('click', toggleDarkMode);
+            }
+        });
+
+        // 平滑滚动导航
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 导航栏高亮当前页面
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id], div[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
