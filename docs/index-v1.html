@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MohismLab - 澳门大学墨子实验室</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9)), 
+                        url('assets/lab-bg.jpg') center/cover;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        /* Sections */
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        /* Lab Info */
+        .lab-info {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            align-items: center;
+        }
+
+        .info-text h3 {
+            color: #667eea;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .info-text p {
+            margin-bottom: 10px;
+        }
+
+        /* Director Section */
+        .director {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .director-content {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .director-photo {
+            text-align: center;
+        }
+
+        .director-photo img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #667eea;
+        }
+
+        .director-info h3 {
+            color: #667eea;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .director-info .position {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+
+        .achievements {
+            margin-top: 20px;
+        }
+
+        .achievements ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .achievements li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .achievements li::before {
+            content: '•';
+            color: #667eea;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Research Areas */
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .research-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .research-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .research-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .director-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="assets/Moh-800.webp" alt="MohismLab Logo">
+                    <h1>MohismLab</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">首页</a></li>
+                        <li><a href="#research">科研</a></li>
+                        <li><a href="#publications">出版</a></li>
+                        <li><a href="#team">团队</a></li>
+                        <li><a href="#teaching">教学</a></li>
+                        <li><a href="#join">加入</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>MohismLab</h1>
+            <p>澳门大学墨子实验室 - 专注于机器学习、手术机器人、多机器人系统与医疗人工智能的前沿研究</p>
+            <a href="#research" class="cta-button">了解我们的研究</a>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">实验室概况</h2>
+            
+            <div class="lab-info">
+                <div class="info-grid">
+                    <div class="info-text">
+                        <h3>实验室信息</h3>
+                        <p><strong>名称：</strong>MohismLab</p>
+                        <p><strong>地址：</strong>E11 - 4065 Faculty of Science and Technology<br>University of Macau</p>
+                        <p><strong>研究领域：</strong>机器学习运动控制、开源技术、医疗影像智能、手术机器人、医疗系统及多机器人系统</p>
+                    </div>
+                    <div class="info-text">
+                        <h3>研究方向</h3>
+                        <p>• Machine Learning-based Motion Control</p>
+                        <p>• Healthcare Imaging/Intelligent Agent</p>
+                        <p>• Surgical Robotics and Medical Systems</p>
+                        <p>• Multi-Robot Systems</p>
+                        <p>• Open-source Technology</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="director">
+                <h3 style="text-align: center; margin-bottom: 30px; color: #667eea;">实验室负责人</h3>
+                <div class="director-content">
+                    <div class="director-photo">
+                        <img src="assets/qingbiaoli.png" alt="李庆标教授">
+                    </div>
+                    <div class="director-info">
+                        <h3>李庆标</h3>
+                        <p class="position">尚贤智启首席科学家，剑桥大学博士，澳门大学科技学院助理教授</p>
+                        
+                        <div class="achievements">
+                            <h4>主要职责</h4>
+                            <p>主导AI教育底层技术架构设计，搭建国际学术合作网络，推动课程体系AI赋能，布局专利与顶级学术会议发声。</p>
+                            
+                            <h4>教育背景与经历</h4>
+                            <ul>
+                                <li>剑桥大学博士，师从Amanda Prorok教授，研究多机器人系统的感知-通信-运动协同规划</li>
+                                <li>曾任牛津大学机器人研究所博士后研究员、帝国理工学院研究助理（医学机器人方向）</li>
+                                <li>硕士毕业于帝国理工学院（医学机器人），本科通过爱丁堡大学与华南理工大学"2+2"联合培养项目获机械工程学位</li>
+                            </ul>
+                            
+                            <h4>科研成果</h4>
+                            <ul>
+                                <li>论文发表于《Nature Machine Intelligence》、IEEE RA-L、IJCARS、ICRA、ICLR等顶级期刊会议</li>
+                                <li>获2020年剑桥大学计算机系Wiseman Prize、2023年国家优秀自费留学生奖学金</li>
+                                <li>谷歌学术引用超1000次</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="research" class="section" style="background-color: #f8f9fa;">
+        <div class="container">
+            <h2 class="section-title">研究方向</h2>
+            <div class="research-grid">
+                <div class="research-card">
+                    <h3>手术机器人</h3>
+                    <p>专注于手术机器人术中影像机器学习技术，开发智能化手术辅助系统，提高手术精度和安全性。</p>
+                </div>
+                <div class="research-card">
+                    <h3>多机器人系统</h3>
+                    <p>研究多机器人系统的感知-通信-运动协同规划，实现机器人群体的智能协作。</p>
+                </div>
+                <div class="research-card">
+                    <h3>医疗影像智能</h3>
+                    <p>利用机器学习技术进行医学诊断，开发血氧饱和度估计算法等医疗辅助诊断工具。</p>
+                </div>
+                <div class="research-card">
+                    <h3>机器学习运动控制</h3>
+                    <p>基于机器学习的运动控制算法研究，提升机器人系统的自主性和适应性。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>联系我们</h4>
+                    <p>地址：E11 - 4065 Faculty of Science and Technology<br>University of Macau</p>
+                </div>
+                <div class="footer-section">
+                    <h4>研究领域</h4>
+                    <p>手术机器人<br>多机器人系统<br>医疗人工智能</p>
+                </div>
+                <div class="footer-section">
+                    <h4>关于我们</h4>
+                    <p>MohismLab致力于推动机器人技术与人工智能在医疗领域的创新应用</p>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #34495e; padding-top: 20px;">
+                <p>&copy; 2025 MohismLab. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 平滑滚动导航
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 滚动时导航栏效果
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(102, 126, 234, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
