@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohism Symposium 2025</title>
+  <meta name="description" content="2025 Mohism Symposium - Speakers">
+  <meta name="keywords" content="Mohism, Symposium, Speaker, 2025">
+  <link rel="shortcut icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪄</text></svg>">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css">
+  <link rel="stylesheet" type="text/css"
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <style>
+    body,
+    .headerr {
+      margin: 0;
+      padding: 0;
+    }
+
+    .headerr {
+      background-image: url('assets/img/header.png');
+      background-size: cover;
+      background-position: center;
+      max-width: 100%;
+      font-size: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 280px;
+    }
+
+    .symposium-title {
+      margin-top: 60px;
+      color: #222;
+      text-shadow: 0 2px 8px #fff8;
+    }
+
+    .info-section {
+      margin: 40px auto 20px auto;
+      max-width: 900px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px #0001;
+      padding: 32px 24px 24px 24px;
+    }
+
+    .speaker-container {
+      display: flex;
+      flex-direction: column;
+      /* 每个speaker占据一行 */
+      gap: 32px;
+      max-width: 1024px;
+      padding: 20px 0;
+      margin: 0 auto;
+    }
+
+    .speaker-card {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      background: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 0 1px 6px #0001;
+      padding: 24px 18px;
+      margin-bottom: 0;
+      min-height: 220px;
+      max-width: 900px;
+      width: 100%;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .speaker-card img {
+      object-fit: cover;
+      border-radius: 0;
+      width: 150px;
+      height: 225px;
+      padding: 10px;
+      background: #fff;
+      border: none;
+    }
+
+    .team-member img {
+      object-fit: cover;
+      border-radius: 50%;
+      /* 圆形图片 */
+      width: 120px;
+      height: 120px;
+      padding: 10px;
+    }
+
+    .speaker-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .speaker-card h5 {
+      margin-bottom: 6px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #222;
+    }
+
+    .speaker-card p {
+      margin-bottom: 0;
+      font-size: 1rem;
+      color: #444;
+      font-weight: normal;
+    }
+
+    .speaker-card .bio {
+      font-size: 0.95rem;
+      color: #555;
+      font-weight: normal;
+      margin: 8px 0 0 0;
+      text-align: left;
+    }
+
+    .speaker-card .talk-title {
+      font-size: 1rem;
+      color: #010a13;
+      font-weight: 500;
+      margin: 8px 0 4px 0;
+    }
+
+    .speaker-card .abstract {
+      font-size: 0.95rem;
+      color: #666;
+      font-weight: normal;
+      margin: 4px 0 0 0;
+      text-align: left;
+    }
+
+    @media (max-width: 900px) {
+      .speaker-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .speaker-card img {
+        margin-right: 0;
+        margin-bottom: 16px;
+      }
+
+      .speaker-info {
+        align-items: center;
+      }
+    }
+
+    .footer {
+      background: #f8f9fa;
+      padding: 16px 0;
+      text-align: center;
+      font-size: 15px;
+      color: #888;
+      margin-top: 40px;
+    }
+
+    /* ...新增样式... */
+    .team-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5px;
+      max-width: 1024px;
+      padding: 20px;
+    }
+
+    @media (max-width: 512px) {
+      .team-container {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+
+    .team-member {
+      text-align: center;
+      padding: 0px;
+      width: 180px;
+      height: 180px;
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+<body class="fixed-top-nav">
+
+  <!-- Header -->
+  <header>
+    <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top">
+      <div class="container">
+        <a class="navbar-brand title font-weight-lighter" href="#">Mohism Symposium 2025</a>
+        <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="sr-only">Toggle navigation</span>
+
+      </div>
+      </ul>
+      </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="headerr">
+    <br><br>
+    <h2 align="center" class="symposium-title">Mohism Symposium 2025 ：Embodied Intelligence</h2>
+    <p align="center" style="font-size:18px;">
+      Time: August 21, 2025<br>
+      Location: To be announced
+    </p>
+
+    </p>
+    <br>
+  </div>
+
+
+  <div class="info-section">
+    <h3 align="center"><b>Speakers</b></h3>
+    <div class="speaker-container">
+      <div class="speaker-card">
+        <img src="assets/Sethu.jpg" alt="Prof Sethu Vijayakumar">
+        <div class="speaker-info">
+          <h5><b>Sethu Vijayakumar</b></h5>
+          <p>University of Edinburgh<br>
+            Professor of Robotics, University of Edinburgh and Programme Director, The Alan Turing Institute,
+            London.
+            <br>Fellow of the Royal Society of Edinburgh, UK.<br>
+          </p>
+          <div class="talk-title">Talk Topic: From Automation to Autonomy: Embodied Generative AI driving the Future of
+            Work</div>
+          <div class="talk-title">Talk Abstract:</div>
+          <div class="abstract">
+            The use of AI and Robotics in our society is becoming ubiquitous and inevitable across various walks of
+            life.
+            The new generation of robots work much more closely with humans, other robots and interact significantly
+            with
+            the environment around it. As a result, the key paradigms are shifting from isolated decision making systems
+            to one that involves shared control -- with significant autonomy devolved to the robot platform; and
+            end-users
+            in the loop making only high level decisions.<br>
+            This session will introduce powerful machine learning technologies ranging from robust multi-modal sensing,
+            shared representations, scalable real-time learning and adaptation, and compliant actuation that are
+            enabling
+            us to reap the benefits of increased autonomy while still feeling securely in control – with focus on latest
+            algorithmic and hardware developments.<br>
+            This also raises some fundamental questions: while the robots are ready to share control, what is the
+            optimal
+            trade-off between autonomy and control that we are comfortable with?<br>
+            Domains where this debate is relevant include deployment of robots in surgical interventions, extreme
+            environments, self-driving cars, asset inspection, repair & maintenance, factories of the future and
+            assisted
+            living technologies including exoskeletons and prosthetics to list a few.
+          </div>
+          <div class="bio">
+            <b>Sethu Vijayakumar</b> is the Founding Director of the Edinburgh Centre for Robotics. He pioneered
+            large-scale
+            machine learning for real-time control of iconic robots such as SARCOS, HONDA ASIMO, KUKA-LWR, and iLIMB. He
+            collaborated with NASA JSC on the Valkyrie humanoid robot for Mars missions. He holds the RAEng-Microsoft
+            Research Chair at Edinburgh and is Adjunct Faculty at USC, Los Angeles. He has published 250+ peer-reviewed
+            articles (H-index 50, 13,000+ citations). He is a BBC Robot Wars judge and winner of the 2015 Tam Dalyell
+            Prize for public science engagement. He helps shape the UK national RAS agenda as Programme Director (AI) at
+            The Alan Turing Institute.<br>
+            <a href="https://web.inf.ed.ac.uk/slmc" target="_blank">Group Webpage</a> |
+            <a href="http://www.linkedin.com/in/sethu-vijayakumar" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <img src="assets/yungu.png" alt="Prof Yun Gu">
+        <div class="speaker-info">
+          <h5><b>Yun Gu</b></h5>
+          <p>Shanghai Jiao Tong University</p>
+          <div class="talk-title">Talk Topic: Towards Vision-Guided Endoluminal Surgery: Planning, Sensing and
+            Navigation</div>
+          <div class="talk-title">Talk Abstract:</div>
+          <div class="abstract">
+            Endobronchial intervention is increasingly used as a minimally invasive means for the treatment of pulmonary
+            diseases. This process requires accurate pre-operative diagnosis, planning, and intra-operative guidance for
+            precise treatment. In this talk, we will present our recent works on pulmonary anatomical analysis and
+            surgical navigation driven by clinical-friendly priors.
+          </div>
+          <div class="bio">
+            <b>Yun Gu</b> is an associate professor in Institute of Medical Robotics, Shanghai Jiao Tong University. He
+            is also
+            affiliated to the Institute of Image Processing and Pattern Recognition under the Department of Automation,
+            Shanghai Jiao Tong University. His research interests are in the fields of Computer-Assisted Surgery and
+            Medical Image Computing. He published over 60 refereed journal articles and conference proceedings papers.
+            He was a recipient of the Best Bench-to-Bedside Award in IPCAI 2022 and Machine Learning for CAI Best Paper
+            honorable mention in IPCAI 2023. <br>Email:<a href="mailto:yungu@ieee.org" target="_blank">
+              yungu@ieee.org</a>
+          </div>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <img src="assets/Cao1.jpeg" alt="Dr. Chongjing Cao">
+        <div class="speaker-info">
+          <h5><b>Chongjing Cao</b></h5>
+          <p>Shenzhen Institutes of Advanced Technology, Chinese Academy of Sciences</p>
+          <div class="talk-title">Talk Topic: Electrostatic soft actuators for emerging biomedical and human-machine
+            interaction
+            applications</div>
+          <div class="talk-title">Talk Abstract:</div>
+          <div class="abstract">
+            The field of soft robotics integrates robotics, biology, and material sciences to develop the next
+            generation of robots that are better suited to complex uncertain environments and human-centered operations
+            with strict
+            safety requirements. As a core component of soft robots, soft actuators have remained a consistent research
+            focus, among which an emerging class of electrostatic soft actuators stands out for their exceptional energy
+            and power densities, as well as high electromechanical efficiencies. This talk will first introduce the
+            fundamental concepts, working principles, and state-of-the-art advancements in electrostatically driven soft
+            actuators. Research progress on the design and modeling of the electrostatic soft actuators in our lab over
+            the last five years will be reported. Finally, the talk will present our efforts in deploying these
+            actuators
+            for emerging biomedical applications (e.g. a soft crawling capsule robot for endoscopies) and human-machine
+            interaction applications (e.g. a multimodal fingertip wearable device for immersive virtual reality).
+          </div>
+          <div class="bio">
+            <b>Chongjing Cao</b> received his Ph.D. degree in robotics from University of Bristol in 2019. In 2020,
+            he
+            joined Shenzhen Institutes of Advanced Technology (SIAT), Chinese Academy of Sciences, where he currently
+            serves as
+            an Associate Research Fellow in the Department of Biomedical and Health Engineering. His research focuses on
+            developing novel soft actuation technologies for biomedical and wearable device applications, with a
+            specific emphasis on the nonlinear dynamics and modeling of electrostatic soft actuation systems. He has
+            authored
+            over 50 papers in peer-reviewed journals and conferences and received research funding from several agencies
+            including the National Natural Science Foundation of China, Guangdong Basic and Applied Basic Research
+            Foundation, Chinese Academy of Sciences, etc.
+          </div>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <img src="assets/dong.png" alt="Prof Hao Dong">
+        <div class="speaker-info">
+          <h5><b>Hao Dong</b></h5>
+          <p>Peking University</p>
+          <div class="talk-title">Talk Topic: Trends on Embodied Intelligence</div>
+          <div class="talk-title">Talk Abstract:</div>
+          <div class="abstract">
+            Embodied intelligence enables intelligent agents to act autonomously in the physical environment.
+            Large-scale automated simulation optimizes robots' perception, decision-making, and manipulation abilities
+            by creating
+            virtual environments to simulate complex scenarios and tasks. In the future, simulation technology will
+            become more efficient, but it still needs to be combined with real-world data to handle more larger-scale
+            and
+            complex tasks.
+          </div>
+          <div class="bio">
+            <b>Hao Dong</b> is an Assistant Professor at the Center on Frontier Computing Studies, School of
+            Computer
+            Science, Peking University. Since joining in 2019, he has led the PKU-Agibot Lab, focusing on object
+            manipulation, task planning, and embodied navigation, with the aim of developing general embodied
+            intelligence algorithms and systems.<br>
+            He has published over 70 papers in top-tier conferences and journals, including RSS, ICRA, CoRL, IROS,
+            NeurIPS, ICLR, CVPR, and ICCV, with more than 8,000 citations on Google Scholar. Hao has received several
+            international accolades, such as the IROS 2024 Best Application Paper Finalist, ByteDance Best Mentor Award
+            2024, Champion of the NeurIPS 2022 MyoChallenge for dual-object manipulation, and the ACM MM 2017 Best Open
+            Source Software Award.<br>
+            He has served as an Area Chair and Associate Editor for leading conferences and journals such as NeurIPS,
+            CVPR, AAAI, ICRA, and Machine Intelligence Research, where he received the Outstanding Associate Editor
+            Award. He has led a National Key Project on Next-Generation Artificial Intelligence.
+          </div>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <img src="assets/placaholder.png" alt="Prof Shanghan Zhang">
+        <div class="speaker-info">
+          <h5><b>Shanghang Zhang</b></h5>
+          <p>Peking University</p>
+          <div class="talk-title">Talk title:</div>
+          <div class="talk-title">Talk Abstract:</div>
+          <div class="abstract">XXXXX</div>
+          <div class="bio">
+            <b>Shanghang Zhang</b>, Professor at Peking University. Long-term research in artificial intelligence
+            and robotics.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Organizers Section -->
+  <div class="container mt-5">
+    <h3 id="organizers" align="center"><b>Organizers</b></h3>
+    <div class="team-container">
+      <div class="team-member">
+        <img src="assets/Qingbiaoli1.jpg" alt="Prof Qingbiao Li">
+        <p><b>Qingbiao Li</b><br>University of Macau</p>
+      </div>
+      <div class="team-member">
+        <img src="assets/yan.jpg" alt="Hecun Yan">
+        <p><b>Hecun Yan</b></p>
+      </div>
+      <div class="team-member">
+        <img src="assets/luowanying1.jpg" alt="Wanying LUO">
+        <p><b>Wanying LUO</b><br>University of Macau</p>
+      </div>
+      <div class="team-member">
+        <img src="assets/placeholder.jpg" alt="XXX">
+        <p><b>XXX</b></p>
+      </div>
+    </div>
+
+    <img src="assets/UMFSTlogo.png" alt="UMFST Logo">
+  </div>
+  </div>
+  </div>
+
+  <div class="footer">
+    © Mohism Symposium 2025. All rights reserved. Powered by <a href="https://pages.github.com/" target="_blank">GitHub
+      Pages</a>.
+  </div>
+  </div>
+
+
+</body>
+
+</html>
